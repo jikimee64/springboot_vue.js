@@ -1,10 +1,9 @@
-package com.springboot.project.domain.board;
+package com.springboot.project.domain.user;
 
 import com.springboot.project.domain.TimeEntity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
 
@@ -21,7 +20,6 @@ public class User extends TimeEntity {
 
     private Long enabled;
 
-    @ColumnDefault("normal")
     private String snstype;
 
     @Builder
@@ -34,6 +32,7 @@ public class User extends TimeEntity {
 
     @PrePersist
     public void prePersist() {
+        this.enabled = this.enabled == null ? 1 : this.enabled;
         this.snstype = this.snstype == null ? "normal" : this.snstype;
     }
 

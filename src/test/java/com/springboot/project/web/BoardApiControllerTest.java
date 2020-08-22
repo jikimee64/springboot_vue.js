@@ -35,7 +35,7 @@ public class BoardApiControllerTest {
         boardRepository.deleteAll();
     }
 
-    @Test //302 Found 에러
+    @Test
     public void Board_등록된다() throws Exception {
 
         String writer = "writer";

@@ -1,6 +1,7 @@
 package com.springboot.project.web;
 
 import com.springboot.project.dto.user.UserSaveRequestDto;
+import com.springboot.project.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,21 +12,11 @@ import javax.validation.Valid;
 @RestController
 public class UserApiController {
 
-    //private final BoardService boardService;
+    private final UserService userService;
 
-    /*
-     * 회원가입
-     *
-     * @param param
-     * @param result
-     * @return
-     */
     @PostMapping("signup")
-    public void save(@RequestBody @Valid UserSaveRequestDto requestDto) {
-        System.out.println("id : " + requestDto.getId());
-        System.out.println("password : " + requestDto.getPassword());
-
-        //return boardService.save(requestDto);
+    public String save(@RequestBody @Valid UserSaveRequestDto requestDto) {
+        return userService.save(requestDto);
     }
 
 }
