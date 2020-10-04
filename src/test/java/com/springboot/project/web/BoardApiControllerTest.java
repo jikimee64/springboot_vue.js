@@ -63,7 +63,5 @@ public class BoardApiControllerTest {
         assertThat(all.get(0).getContent()).isEqualTo(content);
     }
 
-    private void title() {
-    }
 
 }

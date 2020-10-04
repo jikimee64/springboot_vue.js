@@ -56,7 +56,6 @@ public class UserApiControllerTest {
         assertThat(all.get(0).getPassword()).isEqualTo(password);
     }
 
-    private void title() {
-    }
+
 
 }

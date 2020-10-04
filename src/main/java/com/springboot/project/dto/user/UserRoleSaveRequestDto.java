@@ -1,11 +1,11 @@
 package com.springboot.project.dto.user;
 
+import com.springboot.project.domain.user.Authorities;
 import com.springboot.project.domain.user.User;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -13,24 +13,22 @@ import javax.validation.constraints.Size;
 @Getter
 @Setter
 @NoArgsConstructor
-public class UserSaveRequestDto {
+public class UserRoleSaveRequestDto {
 
-    @Size(max = 10, message = "아이디는 10글자 이하 입력해주세요")
     private String id;
 
-    @NotBlank
-    private String password;
+    private String authority;
 
     @Builder
-    public UserSaveRequestDto(String id, String password) {
+    public UserRoleSaveRequestDto(String id, String authority) {
         this.id = id;
-        this.password = password;
+        this.authority = authority;
     }
 
-    public User toEntity() {
-        return User.builder()
+    public Authorities toEntity() {
+        return Authorities.builder()
                 .id(id)
-                .password(password)
+                .authority(authority)
                 .build();
     }
 }

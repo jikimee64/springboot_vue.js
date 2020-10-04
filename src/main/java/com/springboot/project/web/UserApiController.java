@@ -15,7 +15,12 @@ public class UserApiController {
     private final UserService userService;
 
     @PostMapping("signup")
-    public String save(@RequestBody @Valid UserSaveRequestDto requestDto) {
+    public String signup(@RequestBody @Valid UserSaveRequestDto requestDto) {
+        return userService.signup(requestDto);
+    }
+
+    @PostMapping("login")
+    public String login(@RequestBody @Valid UserSaveRequestDto requestDto) {
         return userService.save(requestDto);
     }
 
